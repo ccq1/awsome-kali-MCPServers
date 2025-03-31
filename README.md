@@ -9,10 +9,10 @@ Binary Understanding: Support for reverse engineering and function analysis.
 Automation: Scripts and servers to simplify repetitive tasks.
 
 ## TODO
- Docker Sandbox Support: Add containerized environments for safe testing and execution.
- Network Tools Integration: Support for tools like Nmap and Wireshark for advanced network analysis.
- Reverse Engineering Tools: Integrate Ghidra and Radare2 for enhanced binary analysis.
- Agent Support: Enable agent-based functionality for distributed tasks or remote operations.
+- [ ] **Docker Sandbox Support**: Add containerized environments for safe testing and execution.
+- [ ] **Network Tools Integration**: Support for tools like Nmap and Wireshark for advanced network analysis.
+- [ ] **Reverse Engineering Tools**: Integrate Ghidra and Radare2 for enhanced binary analysis.
+- [ ] **Agent Support**: Enable agent-based functionality for distributed tasks or remote operations.
  
 ## Current Status
 This project is still in its early stages. I’m working on preparing the content, including server configurations, tool integrations, and documentation. Nothing is fully ready yet, but stay tuned—exciting things are coming soon!
