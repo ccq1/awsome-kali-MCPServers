@@ -6,7 +6,7 @@ from src.kali_mcps.nm.actions import basic_symbols_action, dynamic_symbols_actio
 from src.kali_mcps.objdump.actions import file_headers_action, disassemble_action, symbol_table_action, section_headers_action, full_contents_action
 from src.kali_mcps.strings.actions import basic_strings_action, min_length_strings_action, offset_strings_action, encoding_strings_action
 from src.kali_mcps.wireshark.actions import capture_live_action, analyze_pcap_action, extract_http_action, protocol_hierarchy_action, conversation_statistics_action, expert_info_action
-
+from src.kali_mcps.traceroute.actions import traceroute_action
 mcp = FastMCP("kali-tools")
 
 
@@ -337,6 +337,21 @@ def expert_info(pcap_file: str):
     """
     return expert_info_action(pcap_file)   
 # tshark end
+
+# traceroute start
+@mcp.tool()
+def traceroute(target: str):
+    """
+    Perform a traceroute to the target.
+
+    Args:
+        target (str): The target IP address or hostname to traceroute to.
+
+    Returns:
+        str: The output results of the traceroute.  
+    """
+    return traceroute_action(target)
+# traceroute end
 
 # run server, using stdio transport
 if __name__ == "__main__":

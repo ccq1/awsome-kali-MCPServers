@@ -1,6 +1,15 @@
 from src.mcp_server import mcp
 import argparse  # 添加 argparse 模块
 import docker
+from mcp.server.models import InitializationOptions
+import asyncio
+async def main():
+    async with mcp.server.stdio.stdio_server() as (read_stream, write_stream):
+        await mcp.run(
+            read_stream,
+            write_stream,
+            InitializationOptions()
+        )
 
 
 if __name__ == "__main__":
@@ -28,4 +37,4 @@ if __name__ == "__main__":
     print("Starting server is running")
     
     # 将镜像名称传递给 mcp
-    mcp.run(transport="stdio")
+    asyncio.run(main())
