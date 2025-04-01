@@ -8,25 +8,25 @@ class NmapCommand(CommandRunner):
                         memory_limit="2g",     # 需要更多内存
                         timeout=300)           # 需要更长的超时时间
 
-async def basic_scan_action(target: str) -> tuple[str, str]:
+def basic_scan_action(target: str) -> tuple[str, str]:
     """
     Basic scan
     For example: nmap 192.168.1.1
     """
     cmd = NmapCommand()
     command = ["nmap", target]
-    return await cmd.execute(command)
+    return cmd.execute(command)
 
-async def intense_scan_action(target: str) -> tuple[str, str]:
+def intense_scan_action(target: str) -> tuple[str, str]:
     """
     Intense scan (-T4 -A)
     Includes: OS detection, version detection, script scanning, and traceroute
     """
     cmd = NmapCommand()
     command = ["nmap", "-T4", "-A", target]
-    return await cmd.execute(command)
+    return cmd.execute(command)
 
-async def stealth_scan_action(target: str) -> tuple[str, str]:
+def stealth_scan_action(target: str) -> tuple[str, str]:
     """
     SYN scan (-sS)
     Half-open scan, more stealthy
@@ -34,26 +34,26 @@ async def stealth_scan_action(target: str) -> tuple[str, str]:
     """
     cmd = NmapCommand()
     command = ["nmap", "-sS", target]
-    return await cmd.execute(command)
+    return cmd.execute(command)
 
-async def quick_scan_action(target: str) -> tuple[str, str]:
+def quick_scan_action(target: str) -> tuple[str, str]:
     """
     Quick scan (-T4 -F)
     Only scans the most common ports
     """
     cmd = NmapCommand()
     command = ["nmap", "-T4", "-F", target]
-    return await cmd.execute(command)
+    return cmd.execute(command)
 
-async def vulnerability_scan_action(target: str) -> tuple[str, str]:
+def vulnerability_scan_action(target: str) -> tuple[str, str]:
     """
     Vulnerability scan (-sV --script vuln)
     Uses vulnerability detection scripts
     """
     cmd = NmapCommand()
     command = ["nmap", "-sV", "--script", "vuln", target]
-    return await cmd.execute(command)
+    return cmd.execute(command)
 
 if __name__ == "__main__":
     # Test example
-    print(asyncio.run(quick_scan_action("10.1.1.106")))
+    print(quick_scan_action("10.1.1.106"))
