@@ -8,7 +8,7 @@ class NmapCommand(CommandRunner):
                         memory_limit="2g",     # 需要更多内存
                         timeout=300)           # 需要更长的超时时间
 
-async def basic_scan(target: str) -> tuple[str, str]:
+async def basic_scan_action(target: str) -> tuple[str, str]:
     """
     Basic scan
     For example: nmap 192.168.1.1
@@ -17,7 +17,7 @@ async def basic_scan(target: str) -> tuple[str, str]:
     command = ["nmap", target]
     return await cmd.execute(command)
 
-async def intense_scan(target: str) -> tuple[str, str]:
+async def intense_scan_action(target: str) -> tuple[str, str]:
     """
     Intense scan (-T4 -A)
     Includes: OS detection, version detection, script scanning, and traceroute
@@ -26,7 +26,7 @@ async def intense_scan(target: str) -> tuple[str, str]:
     command = ["nmap", "-T4", "-A", target]
     return await cmd.execute(command)
 
-async def stealth_scan(target: str) -> tuple[str, str]:
+async def stealth_scan_action(target: str) -> tuple[str, str]:
     """
     SYN scan (-sS)
     Half-open scan, more stealthy
@@ -36,7 +36,7 @@ async def stealth_scan(target: str) -> tuple[str, str]:
     command = ["nmap", "-sS", target]
     return await cmd.execute(command)
 
-async def quick_scan(target: str) -> tuple[str, str]:
+async def quick_scan_action(target: str) -> tuple[str, str]:
     """
     Quick scan (-T4 -F)
     Only scans the most common ports
@@ -45,7 +45,7 @@ async def quick_scan(target: str) -> tuple[str, str]:
     command = ["nmap", "-T4", "-F", target]
     return await cmd.execute(command)
 
-async def vulnerability_scan(target: str) -> tuple[str, str]:
+async def vulnerability_scan_action(target: str) -> tuple[str, str]:
     """
     Vulnerability scan (-sV --script vuln)
     Uses vulnerability detection scripts
@@ -56,4 +56,4 @@ async def vulnerability_scan(target: str) -> tuple[str, str]:
 
 if __name__ == "__main__":
     # Test example
-    print(asyncio.run(quick_scan("10.1.1.106")))
+    print(asyncio.run(quick_scan_action("10.1.1.106")))

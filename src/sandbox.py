@@ -10,7 +10,7 @@ class SandboxSettings:
     """sandbox configuration settings"""
     def __init__(
         self,
-        image: str = "ubuntu-systemd:22.04",
+        image: str = "kalimcps:latest",
         memory_limit: str = "2g",
         cpu_limit: float = 1.0,
         network_enabled: bool = True,

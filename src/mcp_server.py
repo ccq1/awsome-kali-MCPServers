@@ -1,11 +1,11 @@
 from mcp.server.fastmcp import FastMCP
 from pydantic import BaseModel, Field
 import os
-from src.kali_mcps.nmap.actions import basic_scan, intense_scan, stealth_scan, quick_scan, vulnerability_scan
-from src.kali_mcps.nm.actions import basic_symbols, dynamic_symbols, demangle_symbols, numeric_sort, size_sort, undefined_symbols
-from src.kali_mcps.objdump.actions import file_headers, disassemble, symbol_table, section_headers, full_contents
-from src.kali_mcps.strings.actions import basic_strings, min_length_strings, offset_strings, encoding_strings
-from src.kali_mcps.wireshark.actions import capture_live, analyze_pcap, extract_http, protocol_hierarchy, conversation_statistics, expert_info
+from src.kali_mcps.nmap.actions import basic_scan_action, intense_scan_action, stealth_scan_action, quick_scan_action, vulnerability_scan_action
+from src.kali_mcps.nm.actions import basic_symbols_action, dynamic_symbols_action, demangle_symbols_action, numeric_sort_action, size_sort_action, undefined_symbols_action
+from src.kali_mcps.objdump.actions import file_headers_action, disassemble_action, symbol_table_action, section_headers_action, full_contents_action
+from src.kali_mcps.strings.actions import basic_strings_action, min_length_strings_action, offset_strings_action, encoding_strings_action
+from src.kali_mcps.wireshark.actions import capture_live_action, analyze_pcap_action, extract_http_action, protocol_hierarchy_action, conversation_statistics_action, expert_info_action
 
 mcp = FastMCP("kali-tools")
 
@@ -23,7 +23,7 @@ def basic_scan(target: str):
     Returns:
         str: The output results of the basic scan.
     """
-    return basic_scan(target)
+    return basic_scan_action(target)
 
 @mcp.tool()
 def intense_scan(target: str):
@@ -35,7 +35,7 @@ def intense_scan(target: str):
     Returns:
         str: The output results of the intense scan.
     """
-    return intense_scan(target)
+    return intense_scan_action(target)
 
 @mcp.tool()
 def stealth_scan(target: str):
@@ -47,7 +47,7 @@ def stealth_scan(target: str):
     Returns:
         str: The output results of the stealth scan.
     """
-    return stealth_scan(target)
+    return stealth_scan_action(target)
 
 @mcp.tool()
 def quick_scan(target: str):
@@ -59,7 +59,7 @@ def quick_scan(target: str):
     Returns:
         str: The output results of the quick scan.
     """
-    return quick_scan(target)
+    return quick_scan_action(target)
 
 @mcp.tool()
 def vulnerability_scan(target: str):
@@ -71,7 +71,7 @@ def vulnerability_scan(target: str):
     Returns:
         str: The output results of the vulnerability scan.
     """
-    return vulnerability_scan(target)
+    return vulnerability_scan_action(target)
 # nmap end
 
 # nm start
@@ -85,7 +85,7 @@ def basic_symbols(target: str):
     Returns:
         str: The output results of the basic symbol listing.
     """
-    return basic_symbols(target)
+    return basic_symbols_action(target)
 
 @mcp.tool()
 def dynamic_symbols(target: str):
@@ -97,7 +97,7 @@ def dynamic_symbols(target: str):
     Returns:
         str: The output results of the dynamic symbol listing.
     """
-    return dynamic_symbols(target)
+    return dynamic_symbols_action(target)
 
 @mcp.tool()
 def demangle_symbols(target: str):
@@ -109,7 +109,7 @@ def demangle_symbols(target: str):
     Returns:
         str: The output results of the demangling of symbols.
     """
-    return demangle_symbols(target)
+    return demangle_symbols_action(target)
 
 @mcp.tool()
 def numeric_sort(target: str):
@@ -121,7 +121,7 @@ def numeric_sort(target: str):
     Returns:
         str: The output results of the numeric sort of symbols.
     """
-    return numeric_sort(target)
+    return numeric_sort_action(target)
 
 @mcp.tool()
 def size_sort(target: str):
@@ -133,7 +133,7 @@ def size_sort(target: str):
     Returns:
         str: The output results of the size sort of symbols.
     """
-    return size_sort(target)
+    return size_sort_action(target)
 
 @mcp.tool()
 def undefined_symbols(target: str):
@@ -145,7 +145,7 @@ def undefined_symbols(target: str):
     Returns:
         str: The output results of the undefined symbol listing.
     """
-    return undefined_symbols(target)
+    return undefined_symbols_action(target)
 # nm end
 
 # objdump start
@@ -159,7 +159,7 @@ def file_headers(target: str):
     Returns:
         str: The output results of the file header listing.
     """
-    return file_headers(target)
+    return file_headers_action(target)
 
 @mcp.tool()
 def disassemble(target: str):
@@ -171,7 +171,7 @@ def disassemble(target: str):
     Returns:
         str: The output results of the disassembly of the target file.
     """
-    return disassemble(target)
+    return disassemble_action(target)
 
 @mcp.tool()
 def symbol_table(target: str):
@@ -183,7 +183,7 @@ def symbol_table(target: str):
     Returns:
         str: The output results of the symbol table listing.
     """
-    return symbol_table(target)
+    return symbol_table_action(target)
 
 @mcp.tool()
 def section_headers(target: str):
@@ -195,7 +195,7 @@ def section_headers(target: str):
     Returns:
         str: The output results of the section header listing.
     """
-    return section_headers(target)
+    return section_headers_action(target)
 
 @mcp.tool()
 def full_contents(target: str):
@@ -207,7 +207,7 @@ def full_contents(target: str):
     Returns:
         str: The output results of the full contents listing.
     """
-    return full_contents(target)
+    return full_contents_action(target)
 # objdump end
 
 # strings start
@@ -221,7 +221,7 @@ def basic_strings(target: str):
     Returns:
         str: The output results of the basic string listing.
     """
-    return basic_strings(target)
+    return basic_strings_action(target)
 
 @mcp.tool()
 def min_length_strings(target: str):
@@ -233,7 +233,7 @@ def min_length_strings(target: str):
     Returns:
         str: The output results of the minimum length string listing.
     """
-    return min_length_strings(target)
+    return min_length_strings_action(target)
 
 @mcp.tool()
 def offset_strings(target: str):
@@ -245,7 +245,7 @@ def offset_strings(target: str):
     Returns:
         str: The output results of the offset string listing.
     """
-    return offset_strings(target)
+    return offset_strings_action(target)
 
 @mcp.tool()
 def encoding_strings(target: str):
@@ -257,7 +257,7 @@ def encoding_strings(target: str):
     Returns:
         str: The output results of the encoding string listing.
     """
-    return encoding_strings(target)
+    return encoding_strings_action(target)
 # strings end
 
 # tshark start
@@ -273,7 +273,7 @@ def capture_live(interface: str, duration: int = 30, filter: str = ""):
     Returns:
         str: The output results of the live capture of network traffic.
     """
-    return capture_live(interface, duration, filter)
+    return capture_live_action(interface, duration, filter)
 
 
 @mcp.tool()
@@ -287,7 +287,7 @@ def analyze_pcap(pcap_file: str, display_filter: str = ""):
     Returns:
         str: The output results of the analysis of the pcap file.
     """
-    return analyze_pcap(pcap_file, display_filter)
+    return analyze_pcap_action(pcap_file, display_filter)
 
 @mcp.tool()
 def extract_http(pcap_file: str):
@@ -299,7 +299,7 @@ def extract_http(pcap_file: str):
     Returns:
         str: The output results of the HTTP extraction from the pcap file.
     """
-    return extract_http(pcap_file)  
+    return extract_http_action(pcap_file)  
 
 @mcp.tool()
 def protocol_hierarchy(pcap_file: str):
@@ -311,7 +311,7 @@ def protocol_hierarchy(pcap_file: str):
     Returns:
         str: The output results of the protocol hierarchy listing.
     """
-    return protocol_hierarchy(pcap_file)    
+    return protocol_hierarchy_action(pcap_file)    
 
 @mcp.tool()
 def conversation_statistics(pcap_file: str):
@@ -323,7 +323,7 @@ def conversation_statistics(pcap_file: str):
     Returns:
         str: The output results of the conversation statistics listing.
     """
-    return conversation_statistics(pcap_file)   
+    return conversation_statistics_action(pcap_file)   
 
 @mcp.tool() 
 def expert_info(pcap_file: str):
@@ -335,7 +335,7 @@ def expert_info(pcap_file: str):
     Returns:
         str: The output results of the expert information listing.
     """
-    return expert_info(pcap_file)   
+    return expert_info_action(pcap_file)   
 # tshark end
 
 # run server, using stdio transport

@@ -8,7 +8,7 @@ class TsharkCommand(CommandRunner):
                         memory_limit="2g",     # 需要更多内存
                         timeout=300)           # 需要更长的超时时间
 
-async def capture_live(interface: str, duration: int = 30, filter: str = "") -> tuple[str, str]:
+async def capture_live_action(interface: str, duration: int = 30, filter: str = "") -> tuple[str, str]:
     """
     Capture live traffic from network interface
     For example: tshark -i eth0 -a duration:30 -f "port 80"
@@ -19,7 +19,7 @@ async def capture_live(interface: str, duration: int = 30, filter: str = "") -> 
         command.extend(["-f", filter])
     return await cmd.execute(command)
 
-async def analyze_pcap(pcap_file: str, display_filter: str = "") -> tuple[str, str]:
+async def analyze_pcap_action(pcap_file: str, display_filter: str = "") -> tuple[str, str]:
     """
     Analyze existing pcap file
     For example: tshark -r file.pcap -Y "http"
@@ -30,7 +30,7 @@ async def analyze_pcap(pcap_file: str, display_filter: str = "") -> tuple[str, s
         command.extend(["-Y", display_filter])
     return await cmd.execute(command)
 
-async def extract_http(pcap_file: str) -> tuple[str, str]:
+async def extract_http_action(pcap_file: str) -> tuple[str, str]:
     """
     Extract HTTP objects from pcap file
     For example: tshark -r file.pcap -Y "http" -T fields -e http.request.method -e http.request.uri
@@ -45,7 +45,7 @@ async def extract_http(pcap_file: str) -> tuple[str, str]:
     ]
     return await cmd.execute(command)
 
-async def protocol_hierarchy(pcap_file: str) -> tuple[str, str]:
+async def protocol_hierarchy_action(pcap_file: str) -> tuple[str, str]:
     """
     Show protocol hierarchy statistics
     For example: tshark -r file.pcap -q -z io,phs
@@ -54,7 +54,7 @@ async def protocol_hierarchy(pcap_file: str) -> tuple[str, str]:
     command = ["tshark", "-r", pcap_file, "-q", "-z", "io,phs"]
     return await cmd.execute(command)
 
-async def conversation_statistics(pcap_file: str) -> tuple[str, str]:
+async def conversation_statistics_action(pcap_file: str) -> tuple[str, str]:
     """
     Show conversation statistics
     For example: tshark -r file.pcap -q -z conv,ip
@@ -63,7 +63,7 @@ async def conversation_statistics(pcap_file: str) -> tuple[str, str]:
     command = ["tshark", "-r", pcap_file, "-q", "-z", "conv,ip"]
     return await cmd.execute(command)
 
-async def expert_info(pcap_file: str) -> tuple[str, str]:
+async def expert_info_action(pcap_file: str) -> tuple[str, str]:
     """
     Show expert information (errors, warnings, notes)
     For example: tshark -r file.pcap -q -z expert
@@ -75,4 +75,4 @@ async def expert_info(pcap_file: str) -> tuple[str, str]:
 if __name__ == "__main__":
     # Test example
     pcap_file = "capture.pcap"
-    print(asyncio.run(protocol_hierarchy(pcap_file)))
+    print(asyncio.run(protocol_hierarchy_action(pcap_file)))

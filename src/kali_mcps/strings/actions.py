@@ -5,7 +5,7 @@ class StringsCommand(CommandRunner):
     def __init__(self):
         super().__init__("strings", network_enabled=False, memory_limit="1g", timeout=120)
 
-async def basic_strings(target: str, input_file: bytes = None) -> tuple[str, str]:
+async def basic_strings_action(target: str, input_file: bytes = None) -> tuple[str, str]:
     """
     Basic strings analysis
     For example: strings /path/to/file
@@ -14,7 +14,7 @@ async def basic_strings(target: str, input_file: bytes = None) -> tuple[str, str
     command = ["strings", target]
     return await cmd.execute(command, input_files={"input_file": "/tmp/input_file"})
 
-async def min_length_strings(target: str, length: int = 6) -> tuple[str, str]:
+async def min_length_strings_action(target: str, length: int = 6) -> tuple[str, str]:
     """
     Strings analysis with specified minimum length
     For example: strings -n 6 /path/to/file
@@ -23,7 +23,7 @@ async def min_length_strings(target: str, length: int = 6) -> tuple[str, str]:
     command = ["strings", "-n", str(length), target]
     return await cmd.execute(command)
 
-async def offset_strings(target: str, format: str = "x") -> tuple[str, str]:
+async def offset_strings_action(target: str, format: str = "x") -> tuple[str, str]:
     """
     Strings analysis showing string offsets
     format can be: 'd' (decimal), 'o' (octal), 'x' (hexadecimal)
@@ -33,7 +33,7 @@ async def offset_strings(target: str, format: str = "x") -> tuple[str, str]:
     command = ["strings", "-t", format, target]
     return await cmd.execute(command)
 
-async def encoding_strings(target: str, encoding: str = "S") -> tuple[str, str]:
+async def encoding_strings_action(target: str, encoding: str = "S") -> tuple[str, str]:
     """
     Strings analysis with specified character encoding
     encoding can be: 
@@ -51,4 +51,4 @@ if __name__ == "__main__":
     # Test example
     target_file = "/bin/ls"
     input_file = bytes.fromhex("68656c6c6f20776f726c64")
-    print(asyncio.run(basic_strings(target_file, {"input_file": input_file , "output_file": "/tmp/output_file"})))
+    print(asyncio.run(basic_strings_action(target_file, {"input_file": input_file , "output_file": "/tmp/output_file"})))
