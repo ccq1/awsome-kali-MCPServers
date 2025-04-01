@@ -1,0 +1,4 @@
+kalilinux:
+  name: kali-tools
+  image: kalimcps:latest # docker built -t kalimcps:latest .
+

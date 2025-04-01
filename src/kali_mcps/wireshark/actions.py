@@ -1,7 +1,7 @@
 import asyncio
-from src.kali_mcps.base.kali_command import KaliCommand
+from src.kali_mcps.base.kali_command import CommandRunner
 
-class TsharkCommand(KaliCommand):
+class TsharkCommand(CommandRunner):
     def __init__(self):
         super().__init__("tshark", 
                         network_enabled=True,  # 需要网络访问

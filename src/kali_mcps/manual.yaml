@@ -1,0 +1,176 @@
+
+mcp:
+  tools:
+    - nmap:
+        functions:
+          - basic_scan
+            description: "Perform a basic network scan using nmap."
+            parameters:
+              target:
+                type: str
+                description: "The target IP address or hostname to scan."
+          - intense_scan
+            description: "Perform an intense network scan using nmap."
+            parameters:
+              target:
+                type: str
+                description: "The target IP address or hostname to scan."
+          - stealth_scan
+            description: "Perform a stealth network scan using nmap."
+            parameters:
+              target:
+                type: str
+                description: "The target IP address or hostname to scan."
+          - quick_scan
+            description: "Perform a quick network scan using nmap."
+            parameters:
+              target:
+                type: str
+                description: "The target IP address or hostname to scan."
+          - vulnerability_scan
+            description: "Perform a vulnerability scan using nmap."
+            parameters:
+              target:
+                type: str
+                description: "The target IP address or hostname to scan."
+                
+    - strings:
+        functions:
+          - basic_strings
+            description: "Perform a basic strings scan using strings."
+            parameters:
+              target:
+                type: str
+                description: "The target file to scan."
+          - min_length_strings
+            description: "Perform a min length strings scan using strings."
+            parameters:
+              target:
+                type: str
+                description: "The target file to scan."
+          - offset_strings
+            description: "Perform an offset strings scan using strings."
+            parameters:
+              target:
+                type: str
+                description: "The target file to scan."
+          - encoding_strings
+            description: "Perform an encoding strings scan using strings."
+            parameters:
+              target:
+                type: str
+                description: "The target file to scan."
+                
+    - objdump:
+        functions:
+          - file_headers
+            description: "Perform a file headers scan using objdump."
+            parameters:
+              target:
+                type: str
+                description: "The target file to scan."
+          - disassemble
+            description: "Perform a disassemble scan using objdump."
+            parameters:
+              target:
+                type: str
+                description: "The target file to scan."
+          - symbol_table
+            description: "Perform a symbol table scan using objdump."
+            parameters:
+              target:
+                type: str
+                description: "The target file to scan."
+          - section_headers
+            description: "Perform a section headers scan using objdump."
+            parameters:
+              target:
+                type: str
+                description: "The target file to scan."
+          - full_contents
+            description: "Perform a full contents scan using objdump."
+            parameters:
+              target:
+                type: str
+                description: "The target file to scan."
+                
+    - nm:
+        functions:
+          - basic_symbols
+            description: "Perform a basic symbols scan using nm."
+            parameters:
+              target:
+                type: str
+                description: "The target file to scan."
+          - dynamic_symbols
+            description: "Perform a dynamic symbols scan using nm."
+            parameters:
+              target:
+                type: str
+                description: "The target file to scan." 
+          - demangle_symbols
+            description: "Perform a demangle symbols scan using nm."
+            parameters:
+              target:
+                type: str
+                description: "The target file to scan."   
+          - numeric_sort
+            description: "Perform a numeric sort scan using nm."
+            parameters:
+              target:
+                type: str
+                description: "The target file to scan." 
+          - size_sort
+            description: "Perform a size sort scan using nm."
+            parameters:
+              target:
+                type: str
+                description: "The target file to scan."   
+          - undefined_symbols
+            description: "Perform an undefined symbols scan using nm."
+            parameters:
+              target:
+                type: str
+                description: "The target file to scan."     
+                
+    - wireshark:
+        functions:
+          - capture_live
+            description: "Perform a capture live scan using wireshark."
+            parameters: 
+              interface:
+                type: str
+                description: "The network interface to capture live traffic on."
+              duration:
+                type: int
+                description: "The duration of the capture in seconds."  
+          - analyze_pcap
+            description: "Perform an analyze pcap scan using wireshark."
+            parameters:
+              pcap_file:
+                type: str
+                description: "The pcap file to analyze."  
+          - extract_http
+            description: "Perform an extract http scan using wireshark."
+            parameters:
+              pcap_file:
+                type: str
+                description: "The pcap file to analyze."  
+          - protocol_hierarchy
+            description: "Perform a protocol hierarchy scan using wireshark."
+            parameters:
+              pcap_file:
+                type: str
+                description: "The pcap file to analyze."    
+          - conversation_statistics
+            description: "Perform a conversation statistics scan using wireshark."
+            parameters:
+              pcap_file:
+                type: str
+                description: "The pcap file to analyze."      
+          - expert_info
+            description: "Perform an expert info scan using wireshark."
+            parameters:
+              pcap_file:
+                type: str
+                description: "The pcap file to analyze."  

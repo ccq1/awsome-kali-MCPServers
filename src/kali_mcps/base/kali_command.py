@@ -3,13 +3,13 @@ import os
 import asyncio
 from src.sandbox import create_sandbox_client, SandboxSettings, SandboxTimeoutError, SandboxError
 
-class KaliCommand:
+class CommandRunner:
     """Base class for executing Kali commands"""
     
     def __init__(self, command_name: str, network_enabled: bool = False, 
                  memory_limit: str = "1g", timeout: int = 120):
         """
-        Initialize KaliCommand
+        Initialize CommandRunner
         Args:
             command_name: Name of the command (e.g. 'objdump', 'nm', etc.)
             network_enabled: Whether network access is needed

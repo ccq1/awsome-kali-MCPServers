@@ -1,7 +1,7 @@
 import asyncio
-from src.kali_mcps.base.kali_command import KaliCommand
+from src.kali_mcps.base.kali_command import CommandRunner
 
-class NmapCommand(KaliCommand):
+class NmapCommand(CommandRunner):
     def __init__(self):
         super().__init__("nmap", 
                         network_enabled=True,  # nmap需要网络访问

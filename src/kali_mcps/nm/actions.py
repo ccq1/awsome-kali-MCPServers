@@ -1,7 +1,7 @@
 import asyncio
-from src.kali_mcps.base.kali_command import KaliCommand
+from src.kali_mcps.base.kali_command import CommandRunner
 
-class NmCommand(KaliCommand):
+class NmCommand(CommandRunner):
     def __init__(self):
         super().__init__("nm", network_enabled=False, memory_limit="1g", timeout=120)
 
@@ -9,7 +9,7 @@ async def basic_symbols(target: str) -> tuple[str, str]:
     """
     Basic symbol listing
     For example: nm /path/to/file
-    """
+    """ 
     cmd = NmCommand()
     command = ["nm", target]
     return await cmd.execute(command)

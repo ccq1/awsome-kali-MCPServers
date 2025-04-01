@@ -1,7 +1,7 @@
 import asyncio
-from src.kali_mcps.base.kali_command import KaliCommand
+from src.kali_mcps.base.kali_command import CommandRunner
 
-class StringsCommand(KaliCommand):
+class StringsCommand(CommandRunner):
     def __init__(self):
         super().__init__("strings", network_enabled=False, memory_limit="1g", timeout=120)
 

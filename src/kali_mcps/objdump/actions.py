@@ -1,7 +1,7 @@
 import asyncio
-from src.kali_mcps.base.kali_command import KaliCommand
+from src.kali_mcps.base.kali_command import CommandRunner
 
-class ObjdumpCommand(KaliCommand):
+class ObjdumpCommand(CommandRunner):
     def __init__(self):
         super().__init__("objdump", network_enabled=False, memory_limit="1g", timeout=120)
 
