@@ -85,14 +85,14 @@ class CommandRunner:
         except Exception as e:
             return "", f"Unknown error: {str(e)}"
 
-    async def execute(self, command: list, input_files: dict = None) -> tuple[str, str]:
+    def execute(self, command: list, input_files: dict = None) -> tuple[str, str]:
         """
         Execute command with safety check
         Args:
             command: Command to execute
             input_files: Dict of {local_path: container_path} for files to copy into container
         """
-        if self.IS_SAFE:
-            return await self.safe_execute_kali_command(command, input_files)
-        else:
-            return self.run_command(command)  
+        # if self.IS_SAFE:
+        #     return await self.safe_execute_kali_command(command, input_files)
+        # else:
+        return self.run_command(command)  

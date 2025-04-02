@@ -5,7 +5,7 @@ from mcp.server.models import InitializationOptions
 
 
 if __name__ == "__main__":
-    # 创建参数解析器
+    # create arg parser
     parser = argparse.ArgumentParser(description='MCP Server with Kali image configuration')
     parser.add_argument('--kali-image', 
                        type=str,
@@ -15,7 +15,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     if args.kali_image:
         image_name = args.kali_image
-        # 使用docker库 查看是否有该镜像
+        # use docker lib to check if the image exists
         client = docker.from_env()
         try:
             client.images.get(image_name)
@@ -28,5 +28,5 @@ if __name__ == "__main__":
     
     print("Starting server is running")
     
-    # 将镜像名称传递给 mcp
+    # pass image name to mcp
     mcp.run(transport="stdio")

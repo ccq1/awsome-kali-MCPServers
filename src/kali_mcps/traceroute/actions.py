@@ -10,7 +10,9 @@ def traceroute_action(target: str):
     Traceroute to the target
     """
     cmd = TracerouteCommand()
-    command = ["tracert", target]
+    command = ["traceroute", target]
     return cmd.execute(command)
 
 
+if __name__ == "__main__":
+    print(traceroute_action("8.8.8.8"))
