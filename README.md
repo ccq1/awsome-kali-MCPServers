@@ -34,6 +34,9 @@ Once configured, connect to the kali-mcps container via the MCP client and start
 - Run `disassemble` to disassemble a target file.
 - Run `capture_live` to capture real-time network traffic.
 
+<p align="center">
+  <img width="482" alt="image" src="https://github.com/user-attachments/assets/0e9fff0a-059d-424b-bb36-450a1d11adf9" />
+</p>
 
 ## What to Expect
 Network Analysis: Tools for sniffing and analyzing traffic.
